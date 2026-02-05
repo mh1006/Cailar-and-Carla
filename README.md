@@ -1,14 +1,25 @@
-# Cailar & Carla: Interactive Color Learning IoT
+# Cailar & Carla: Color Learning Product
 **Bachelor Graduation Project | Sep 2020 - Dec 2021**
+
+## Product Overview
+**Cailar & Carla** is an interactive color learning product designed for elementary students (**ages 7–11**) to explore color theory through hands-on play. 
+
+By integrating a **plush tactile controller** with a **gamified mobile app**, children can capture colors from their real-world environment and use them to solve color challenges. This project addresses the lack of engaging, depth-oriented color education in current curriculums.
+
+### Key Features
+<p align="center">
+  <img src="docs/Product.png" width="600" title="Circuit Diagram">
+</p>
+
 
 ---
 
 ## Repository Structure
 This repository contains the complete source code for both the hardware and software components of the project:
 
-* **/CC_APP**: Contains the **Flutter** source code for the interactive mobile learning interface.
-* **/CC_ESP32.ino**: Contains the **ESP32 (NodeMCU32S)** firmware written in **Arduino** for color sensing and Bluetooth transmission.
-* **/Circuit_Diagram.png**: Project schematics and technical wiring diagrams illustrating the integration of the 9V power system, LED light reinforcement, and sensor modules.
+* **CC_APP**: Contains the **Flutter** source code for the interactive mobile learning interface.
+* **CC_ESP32.ino**: Contains the **ESP32 (NodeMCU32S)** firmware written in **Arduino** for color sensing and Bluetooth transmission.
+* **Circuit_Diagram.png**: Project schematics and technical wiring diagrams illustrating the integration of the 9V power system, LED light reinforcement, and sensor modules.
 
 ---
 
@@ -25,7 +36,7 @@ Cailar & Carla is a bridge between physical play and digital learning. The syste
 ## Hardware Design Highlights
 
 <p align="center">
-  <img src="Circuit_Diagram.png" width="600" title="Circuit Diagram">
+  <img src="docs/Circuit_Diagram.png" width="600" title="Circuit Diagram">
 </p>
 
 * **Environmental Adaptability**: The integrated **LED Light Reinforcement** compensates for insufficient ambient light.
@@ -52,3 +63,12 @@ Cailar & Carla is a bridge between physical play and digital learning. The syste
 * **Tangible Interaction**: A plush-covered device that encourages children (**ages 7–11**) to explore their surroundings physically.
 * **Gamified Pedagogy**: Transforms abstract color theory into an engaging story-driven game.
 * **Full-Stack Implementation**: Managed the end-to-end data pipeline from physical hardware sensors to a high-level mobile UI, ensuring seamless data flow and system stability.
+
+---
+
+## Team & Acknowledgments
+This project received the **Honorable Mention Award** in the Graduation Project Competition.
+
+* **Team Members**: Ming-Hua Hsieh (Team Leader & Lead Developer), Ching-Yung Fan, Hsin-Yu Tsai, Po-Yin Pan, and Li-Han Lin.
+* **Supervisor**: Prof. Kun-Yi Lin (linkuenyi@ntnu.edu.tw)
+* **Institution**: National Taiwan Normal University (NTNU)
