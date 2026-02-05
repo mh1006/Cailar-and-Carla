@@ -1,31 +1,54 @@
-# Cailar & Carla
-## 📌 Background & Motivation
-In Taiwan, while art education is gaining emphasis, a significant gap exists in students’ deep exploration of color theory. This project, my **Bachelor Graduation Project**, aims to bridge this gap by creating an interactive learning tool that introduces elementary students (ages 7–11) to fundamentals of color through hands-on play.
-
-* **Goal:** Enhance students’ motivation to learn and deeply engage with art through interactive color exploration.
-* **Target Audience:** Elementary school students aged 7–11.
----
-
-## Key Features & Tech Stack
-This project integrates physical hardware with a digital learning interface to create a seamless Educational IoT experience:
-
-### **Technical Implementation**
-* **Real-time Color Sensing:** Utilizes a **TCS34725 sensor** to accurately detect physical colors from the environment.
-* **Wireless Connectivity:** Integrated with **NodeMCU32S (ESP32)** to transmit sensed data via **Bluetooth** to a custom mobile application.
-* **Full-Stack Integration:** Managed data flow from hardware sensors to a mobile UI, ensuring low-latency feedback.
-
-### **Human-Centered Design**
-* **Tangible Interaction:** Features a **plush outer layer** designed to enhance tactile experience and emotional engagement for children.
-* **Gamified Learning:** A mobile app providing storytelling and game-based feedback based on the sensed color data.
+# Cailar & Carla: Interactive Color Learning IoT
+**Bachelor Graduation Project | Sep 2020 - Dec 2021**
 
 ---
 
-## Product Testing & Validation
-To verify the effectiveness of the product, structured usability testing sessions were conducted:
+## Repository Structure
+This repository contains the complete source code for both the hardware and software components of the project:
 
-* **Participants:** 10 elementary students (ages 7–11).
-* **Format:** 40-minute individual sessions including story-based teaching and game interaction.
-* **Methodology:** Utilized **pre- and post-tests** to measure the improvement in color concept comprehension.
+* **/CC_APP**: Contains the **Flutter** source code for the interactive mobile learning interface.
+* **/CC_ESP32.ino**: Contains the **ESP32 (NodeMCU32S)** firmware written in **Arduino** for color sensing and Bluetooth transmission.
+* **/Circuit_Diagram.png**: Project schematics and technical wiring diagrams illustrating the integration of the 9V power system, LED light reinforcement, and sensor modules.
 
-### **Results**
-* Achieved **universal positive feedback** on engagement and fun during the learning process.
+---
+
+## System Architecture & Workflow
+Cailar & Carla is a bridge between physical play and digital learning. The system operates through a seamless integration of hardware and software:
+
+1.  **Sensing (Hardware)**: The **TCS34725 sensor** captures RGB values from the physical environment.
+2.  **Processing (Edge)**: The **NodeMCU32S (ESP32)** processes raw sensor data into standardized color information.
+3.  **Communication**: Data is transmitted in real-time via **Bluetooth** to the user's smartphone.
+4.  **Interaction (Software)**: The **Flutter App** receives the data and triggers storytelling animations and gamified feedback.
+
+---
+
+## Hardware Design Highlights
+
+<p align="center">
+  <img src="Circuit_Diagram.png" width="600" title="Circuit Diagram">
+</p>
+
+* **Environmental Adaptability**: The integrated **LED Light Reinforcement** compensates for insufficient ambient light.
+* **Power Efficiency**: The circuit uses a step-down module to convert 9V input into the precise voltage required for the ESP32 and sensors, ensuring long-term stability.
+* **Low-Latency Feedback**: The system is optimized to transmit sensed data to the **Flutter App** immediately upon button press, creating a responsive learning loop for children.
+
+---
+
+## Tech Stack
+
+### **Hardware / Firmware**
+* **Controller**: ESP32 (NodeMCU32S).
+* **Sensor**: TCS34725 Color Sensor.
+* **Environment**: Arduino IDE (C/C++).
+* **Protocol**: Bluetooth Low Energy (BLE).
+
+### **Software / Mobile**
+* **Framework**: Flutter (Dart).
+* **UI/UX Design**: Adobe Illustrator.
+
+---
+
+## Key Features
+* **Tangible Interaction**: A plush-covered device that encourages children (**ages 7–11**) to explore their surroundings physically.
+* **Gamified Pedagogy**: Transforms abstract color theory into an engaging story-driven game.
+* **Full-Stack Implementation**: Managed the end-to-end data pipeline from physical hardware sensors to a high-level mobile UI, ensuring seamless data flow and system stability.
