@@ -1,6 +1,8 @@
 # Cailar & Carla: Color Learning Product
 >**Bachelor Graduation Project | Sep 2020 - Dec 2021**
 
+>This repository serves as an archive of the project state as of Dec 4, 2021.
+
 ## Product Overview
 **Cailar & Carla** is an interactive color learning product designed for elementary students (**ages 7–11**) to explore color theory through hands-on play. 
 By integrating a **plush tactile controller** with a **gamified mobile app**, children can capture colors from their real-world environment and use them to solve color challenges. This project addresses the lack of engaging, depth-oriented color education in current curriculums.
