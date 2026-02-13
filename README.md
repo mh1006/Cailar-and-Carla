@@ -19,27 +19,27 @@ By integrating a **plush tactile controller** with a **gamified mobile app**, ch
 
 ### Gallery
 
-<table border="0" width="100%" align="center">
+<table width="80%" align="center">
   <tr>
     <td colspan="3" align="center">
-      <img src="docs/realProduct.jpg" width="80%">
+      <img src="docs/realProduct.png" width="100%">
       <br>
-      <b>Figure 2:</b> Hardware Device & Interface
+      <b>Figure 2: Hardware Device & Interface</b>
     </td>
   </tr>
   <tr>
-    <td width="30%" align="center">
-      <img src="docs/sensorModeApp.jpg" width="100%"">
+    <td width="28%" align="center">
+      <img src="docs/sensorModeApp.png" width="100%">
       <br>
       <sub>2a. Data Visualization</sub>
     </td>
-    <td width="30%" align="center">
-      <img src="docs/DynamicGame.jpg" width="100%"">
+    <td width="28%" align="center">
+      <img src="docs/dynamicGame.png" width="100%">
       <br>
       <sub>2b. Dynamic Game</sub>
     </td>
-    <td width="40%" align="center">
-      <img src="docs/unityBattleGame.jpg" width="100%"">
+    <td width="44%" align="center">
+      <img src="docs/unityBattleGame.png" width="100%">
       <br>
       <sub>2c. Unity Battle Game</sub>
     </td>
