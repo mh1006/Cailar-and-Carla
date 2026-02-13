@@ -1,68 +1,106 @@
 # Cailar & Carla: Color Learning Product
-**Bachelor Graduation Project | Sep 2020 - Dec 2021**
+>**Bachelor Graduation Project | Sep 2020 - Dec 2021**
 
 ## Product Overview
 **Cailar & Carla** is an interactive color learning product designed for elementary students (**ages 7–11**) to explore color theory through hands-on play. 
-
 By integrating a **plush tactile controller** with a **gamified mobile app**, children can capture colors from their real-world environment and use them to solve color challenges. This project addresses the lack of engaging, depth-oriented color education in current curriculums.
 
-### Key Features
+## Product Highlights
 <p align="center">
-  <img src="docs/Product.png" width="1000" title="Circuit Diagram">
+  <img src="docs/Product.png" width="1000" title="Product">
+  <em>Figure 1: Product Overview</em>
 </p>
 
+* **Tangible Interaction**: A plush-covered device encouraging physical exploration.
+* **Gamified Pedagogy**: Transforms abstract color theory into an engaging story-driven game.
+* **Full-Stack Integration**: End-to-end implementation from hardware sensors to mobile interface.
+
+### Gallery
+
+<table border="0" width="100%" align="center">
+  <tr>
+    <td colspan="3" align="center">
+      <img src="docs/realProduct.jpg" width="80%">
+      <br>
+      <b>Figure 2:</b> Hardware Device & Interface
+    </td>
+  </tr>
+  <tr>
+    <td width="30%" align="center">
+      <img src="docs/sensorModeApp.jpg" width="100%"">
+      <br>
+      <sub>2a. Data Visualization</sub>
+    </td>
+    <td width="30%" align="center">
+      <img src="docs/DynamicGame.jpg" width="100%"">
+      <br>
+      <sub>2b. Dynamic Game</sub>
+    </td>
+    <td width="40%" align="center">
+      <img src="docs/unityBattleGame.jpg" width="100%"">
+      <br>
+      <sub>2c. Unity Battle Game</sub>
+    </td>
+  </tr>
+</table>
 
 ---
 
 ## Repository Structure
 This repository contains the complete source code for both the hardware and software components of the project:
 
-* **CC_APP**: Contains the **Flutter** source code for the interactive mobile learning interface.
+* **CC_APP**: Contains the **Flutter & Unity** source code for the interactive mobile learning APP.
 * **CC_ESP32.ino**: Contains the **ESP32 (NodeMCU32S)** firmware written in **Arduino** for color sensing and Bluetooth transmission.
-* **docs/Circuit_Diagram.png**: Project schematics and technical wiring diagrams illustrating the integration of the 9V power system, LED light reinforcement, and sensor modules.
+* **docs**: Documentation assets.
 
 ---
 
-## System Architecture & Workflow
-Cailar & Carla is a bridge between physical play and digital learning. The system operates through a seamless integration of hardware and software:
+## Technical Architecture (My Contributions)
+As the **Team Leader & Lead Developer**, I was responsible for the **Hardware-Software Integration**, ensuring data flowed seamlessly from the sensor to the app.
 
-1.  **Sensing (Hardware)**: The **TCS34725 sensor** captures RGB values from the physical environment.
-2.  **Processing (Edge)**: The **NodeMCU32S (ESP32)** processes raw sensor data into standardized color information.
-3.  **Communication**: Data is transmitted in real-time via **Bluetooth** to the user's smartphone.
-4.  **Interaction (Software)**: The **Flutter App** receives the data and triggers storytelling animations and gamified feedback.
+### 1. IoT Communication Protocol (Firmware)
+* **BLE Architecture**: Implemented a **GATT Server** on the ESP32 utilizing **Notify characteristics**. This enables the hardware to proactively push sensor data to the app upon button press, ensuring **real-time responsiveness** and power efficiency.
+* **Data Serialization**: Formatted sensor readings into a lightweight CSV string (e.g., "R,G,B,Clear") for efficient parsing on the mobile end.
 
----
+### 2. Mobile & Game Integration (Flutter & Unity)
+* **Real-time Data Stream**: Implemented a `StreamBuilder` architecture in Dart to asynchronously parse incoming Bluetooth packets.
+* **Reactive State Management**: Built a robust handler that updates the UI instantly **in sync with the physical button press**, ensuring zero perceptible latency between the hardware action and screen feedback.
+* **Flutter-Unity Data Bridge**: Architected the communication channel between the **Flutter Host** (App) and the **embedded Unity Engine** to transmit sensor data in real-time.
+* **Gameplay Logic Implementation (C#)**: Developed the core mechanics for the **"Battle Mode"**, including the win/loss state machine, health point (HP) calculation, and shooting logic (independent of sensor input).
 
-## Hardware Design Highlights
+### 3. Hardware Circuit Design
+* **Power Management**: Integrated a Step-Down module to convert the **9V battery source to 5V**, providing stable power for the **NodeMCU-32S** and high-brightness **LED light reinforcement** (to compensate for ambient light).
+* **Sensor Integration**: Interfaced the **TCS34725** color sensor via **I2C protocol**, ensuring accurate color acquisition.
 
 <p align="center">
-  <img src="docs/Circuit_Diagram.png" width="600" title="Circuit Diagram">
+  <img src="docs/Circuit_Diagram.png" width="800" title="Circuit Diagram">
+  <br>
+  <em>Figure 3: Circuit Diagram & Power Management</em>
 </p>
 
-* **Environmental Adaptability**: The integrated **LED Light Reinforcement** compensates for insufficient ambient light.
-* **Power Efficiency**: The circuit uses a step-down module to convert 9V input into the precise voltage required for the ESP32 and sensors, ensuring long-term stability.
-* **Low-Latency Feedback**: The system is optimized to transmit sensed data to the **Flutter App** immediately upon button press, creating a responsive learning loop for children.
+---
+
+## System Features (Team Effort)
+The project success relied on specialized modules developed by the team:
+
+* **Heuristic Color Calibration**: The system incorporates a custom algorithm (developed by Po-Yin Pan) that converts raw RGB noise into stable HSL values, compensating for ambient light variations.
+* **Ergonomic Product Design**: The device features a plush exterior and a 3D-printed internal structure (designed by Hsin-Yu Tsai) to protect the electronics while maintaining a soft, approachable tactile feel.
 
 ---
 
 ## Tech Stack
 
 ### **Hardware / Firmware**
-* **Controller**: ESP32 (NodeMCU32S).
-* **Sensor**: TCS34725 Color Sensor.
-* **Environment**: Arduino IDE (C/C++).
-* **Protocol**: Bluetooth Low Energy (BLE).
+* **Controller**: ESP32 (NodeMCU-32S)
+* **Sensor**: TCS34725 Color Sensor
+* **Circuitry**: 9V Power Supply, Step-Down Module
+* **Protocol**: Bluetooth Low Energy (BLE) / GATT
 
 ### **Software / Mobile**
-* **Framework**: Flutter (Dart).
-* **UI/UX Design**: Adobe Illustrator.
-
----
-
-## Key Features
-* **Tangible Interaction**: A plush-covered device that encourages children (**ages 7–11**) to explore their surroundings physically.
-* **Gamified Pedagogy**: Transforms abstract color theory into an engaging story-driven game.
-* **Full-Stack Implementation**: Managed the end-to-end data pipeline from physical hardware sensors to an interactive mobile interface, ensuring seamless data flow and system stability.
+* **Mobile Framework**: Flutter (Dart)
+* **Game Engine**: Unity (Integrated within Flutter)
+* **Tools**: Arduino IDE, Visual Studio Code
+* **Design**: Adobe Illustrator
 
 ---
 
@@ -71,4 +109,5 @@ This project received the **Honorable Mention Award** in the Graduation Project 
 
 * **Team Members**: Ming-Hua Hsieh (Team Leader & Lead Developer), Ching-Yung Fan, Hsin-Yu Tsai, Po-Yin Pan, and Li-Han Lin.
 * **Supervisor**: Prof. Kun-Yi Lin (linkuenyi@ntnu.edu.tw)
+
 * **Institution**: National Taiwan Normal University (NTNU)
